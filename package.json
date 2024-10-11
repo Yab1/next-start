@@ -2,12 +2,21 @@
   "name": "next-start",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=v20.14.0",
+    "pnpm": ">=9.12.0",
+    "yarn": "🚫 Please use pnpm instead of yarn to install dependencies. 🚫",
+    "npm": "🚫 Please use pnpm instead of npm to install dependencies. 🚫"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier src/ --write"
+    "format": "prettier src/ package.json --write",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "test-all": "pnpm run check-types && pnpm run check-format && pnpm run lint && pnpm run build"
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.8",
@@ -22,6 +31,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -31,6 +42,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-check-file": "^2.8.0",
     "eslint-plugin-n": "^17.11.1",
+    "husky": "^9.1.6",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
