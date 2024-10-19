@@ -1,34 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
-import { Switch } from "@nextui-org/react";
-import { IconMoon, IconSun } from "@tabler/icons-react";
-
+import { Button } from "@/components/ui/button";
 import useSystemTheme from "@/hooks/use-system-theme";
 
-export function ThemeSwitcher({ showLabel }: { showLabel?: boolean }) {
-  const [mounted, setMounted] = useState(false);
+export function ThemeSwitcher() {
   const { theme, setTheme } = useSystemTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
-    <Switch
-      isSelected={theme === "light"}
-      onValueChange={() =>
-        theme === "dark" ? setTheme("light") : setTheme("dark")
-      }
-      size="lg"
-      color="success"
-      startContent={<IconSun />}
-      endContent={<IconMoon />}
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={() => (theme === "dark" ? setTheme("light") : setTheme("dark"))}
     >
-      {showLabel && "Theme"}
-    </Switch>
+      {theme === "dark" ? <Moon /> : <Sun />}
+    </Button>
   );
 }
