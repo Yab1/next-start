@@ -1,6 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
-  "plugins": ["check-file", "n"],
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier","@tanstack/eslint-plugin-query/flat/recommended"],
+  "plugins": ["check-file", "n","query"],
   "rules": {
     "prefer-arrow-callback": ["error"],
     "prefer-template": ["error"],
