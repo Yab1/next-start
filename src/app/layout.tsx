@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import "@atlaskit/css-reset";
+
 export const metadata: Metadata = {
   title: "Next.js Starter App",
   description: "A basic starter for next.js",
