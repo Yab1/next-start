@@ -1,0 +1,14 @@
+services:
+  esx-cip-frontend:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    image: next-start
+    command: "node server.js"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    env_file:
+    - ../.env
+    network_mode: "host"
+
